@@ -1,0 +1,49 @@
+# Define variables needed for NSX Manager Deployment / Configuration
+configureSSO=True
+nsxMgrHostName='python-smt-nsxmgr'
+nsxMgrNetwork='Internal-vLan-10'
+nsxMgrIp='192.168.10.220'
+nsxMgrPort=443
+nsxMgrMask='255.255.255.0'
+nsxMgrGw='192.168.10.1'
+nsxMgrDns1='192.168.20.50'
+nsxMgrNtpSvr='pool.ntp.org'
+nsxMgmtDatastore='NFS_FAS2240'
+nsxMgmtCluster='SuperMicro Cluster'
+nsxMgmtDatacenter='Production'
+mgmtVcIp='192.168.10.10'
+mgmtVcUser='tkraus'
+mgmtVcPassword='NSXv123!'
+
+# Define variables needed for NSX Controller Deployment / Configuration
+nsxControllerQty=1 
+ctlDatastoreId='datastore-21'
+computeCluster='domain-c7'
+ctldvPgId='dvportgroup-30'
+mgtIpRangeStart='192.168.10.216'
+mgtIpRangeStop='192.168.10.219'
+mgtIpRangeMaskLength='24'
+mgtIpRangeDns1='192.168.20.50'
+mgtIpRangeDns1=''
+mgtIpRangeGw='192.168.10.1'
+
+# Define variables needed for VXLAN Cluster Preparation and Configuration
+nsxComputeCluster='domain-c26'
+computeVcIp='labvcenter.hoodlumnet.com'
+computeVcUser='tkraus@hoodlumnet.com'
+computeVcPass='NSXv123!'
+--vxlanDvsId='dvs-32'
+vxlanVtepVlanId='0'
+--vxlanVtepTeaming='FAILOVER_ORDER'
+computeIpRangeStart='192.168.35.40'
+computeIpRangeStop='192.168.35.50'
+computeIpRangeMaskLength='24'
+computeIpRangeGw='192.168.35.1'
+computeIpRangeDns1='192.168.20.50'
+tzName = 'VIO-TZ1'
+
+
+OVF Manager internal error. For more details, refer to the rootCauseString or the VC logs
+
+
+ovftool --powerOn --noSSLVerify -ds=NFS_FAS2240 -n=lab-nsx-manager-6.1 --network=Internal-vLAN-10 --prop:vsm_ip_0=192.168.10.220 --prop:vsm_cli_en_passwd_0=VMware1!VMware1! --prop:vsm_cli_passwd_0=VMware1!VMware1! --prop:vsm_netmask_0=255.255.255.0 --allowExtraConfig --prop:vsm_hostname=lab-nsx-manager-6.1 --prop:vsm_gateway_0=192.168.10.1 --prop:vsm_ntp_0=pool.ntp.org --prop:vsm_dns1_0=192.168.20.50 --acceptAllEulas /opt/vmware/ova/VMware-NSX-Manager-6.1.0-2107742.ova "vi://tkraus@hoodlumnet.com:NSXv123!@vcenter.hoodlumnet.com/Production/host/SuperMicro Cluster"
