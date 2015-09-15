@@ -1,7 +1,7 @@
 '''
 #!/usr/bin/env python
 '''
-# Testing GIT Synchronization from PyCharm
+# Testing GIT Synchronization from PyCharm 8-9-2015 11:09 PM
 
 import base64
 import urllib2
